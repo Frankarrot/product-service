@@ -1,5 +1,6 @@
 package com.imp.productservice.application.dto;
 
+import com.imp.productservice.client.MemberResponse;
 import com.imp.productservice.domain.Product;
 import com.imp.productservice.domain.ProductStatus;
 import java.math.BigDecimal;
@@ -29,15 +30,15 @@ public class ProductFindResponse {
         this.email = email;
     }
 
-    public static ProductFindResponse from(final Product product, final Member member) {
+    public static ProductFindResponse from(final Product product, final MemberResponse member) {
         return ProductFindResponse.builder()
                 .id(product.getId())
                 .name(product.getName())
                 .quantity(product.getQuantity().getValue())
                 .price(product.getPrice().getValue())
                 .status(product.getStatus())
-                .sellerName(member.getNickname())
-                .email(member.getEmail())
+                .sellerName("sellerName")
+                .email("email")
                 .build();
     }
 }
